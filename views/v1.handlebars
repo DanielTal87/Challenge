@@ -1,0 +1,78 @@
+<h1>Short URL Options</h1>
+
+<section id="links" class="container">
+    <div class="form-wrap">
+        <h1>Create a new short link</h1>
+        <p>Input the target url that you wish to get a new shorter link</p>
+        {{#each errors}}
+            <div class="error">
+                <p>{{text}}</p>
+            </div>
+        {{/each}}
+        <form action="/v1/links" method="post">
+            <div class="input-group">
+                <label for="title">Target url</label>
+                <input type="text" name="url" id="title" class="input-box" placeholder="eg. https://www.google.com"
+                       maxlength="200" required value={{url}}>
+            </div>
+            <input type="submit" value="Generate" class="btn btn-reverse">
+        </form>
+        <ul>
+            <small>Notice: The url must contain http:// or https:// and www prefix</small>
+        </ul>
+    </div>
+
+    <div class="form-wrap">
+        <h1>Access short link</h1>
+        <p>Input the short url that you wish to redirect to</p>
+        <form action="/v1/short_link_hash" method="get">
+            <div class="input-group">
+                <label for="title">Short Link Hash</label>
+                <input type="text" name="short_link_hash" id="title" class="input-box" placeholder="eg. ef7efc9839c3ee036f023e9635bc3b056d6ee2db"
+                       maxlength="200" required value={{short_link_hash}}>
+            </div>
+            <input type="submit" value="Generate" class="btn btn-reverse">
+        </form>
+        <ul>
+            <small>Notice: The url must contain http:// or https:// and www prefix</small>
+        </ul>
+    </div>
+
+    <div class="form-wrap">
+        <h1>Delete short link</h1>
+        <p>Input the short url that you wish to delete</p>
+        <form action="/v1/short_link_hash" method="post">
+            <div class="input-group">
+                <label for="title">Short Link Hash</label>
+                <input type="text" name="short_link_hash" id="title" class="input-box" placeholder="eg. ef7efc9839c3ee036f023e9635bc3b056d6ee2db"
+                       maxlength="200" required value={{short_link_hash}}>
+            </div>
+            <input type="submit" value="Generate" class="btn btn-reverse">
+        </form>
+        <ul>
+            <small>Notice: The url must contain http:// or https:// and www prefix</small>
+        </ul>
+    </div>
+
+    <div class="form-wrap">
+        <h1>Update a new short link</h1>
+        <p>Input the target url that you wish to update</p>
+        {{#each errors}}
+            <div class="error">
+                <p>{{text}}</p>
+            </div>
+        {{/each}}
+        <form action="/v1/links" method="put">
+            <div class="input-group">
+                <label for="title">Target url</label>
+                <input type="text" name="url" id="title" class="input-box" placeholder="eg. https://www.google.com"
+                       maxlength="200" required value={{url}}>
+            </div>
+            <input type="submit" value="Generate" class="btn btn-reverse">
+        </form>
+        <ul>
+            <small>Notice: The url must contain http:// or https:// and www prefix</small>
+        </ul>
+    </div>
+
+</section>
